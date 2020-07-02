@@ -2,7 +2,10 @@ from django.urls import path, re_path, include
 from . import views
 
 
-extra
+extra_patterns = [
+    re_path(r'^report/$', views.report),
+    re_path(r'^report/(?P<id>[0-9]+)/$', views.report),
+]
 
 
 urlpatterns = [

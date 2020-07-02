@@ -23,4 +23,8 @@ def discuss(request, page_slug, page_id):
 def permissions(request, page_slug, page_id):
     return HttpResponse("permissions")
 
+def report(request, id='1'):
+    return HttpResponse("report %s" %id)
+
+
 
