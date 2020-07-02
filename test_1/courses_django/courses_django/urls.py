@@ -18,7 +18,9 @@ from django.urls import path, include
 from lesson_two import views
 
 urlpatterns = [
-    path(r'', include('lesson_one.urls')), # добавили наши урлы к глобальным
+    # path(r'', include('lesson_one.urls')), # добавили наши урлы к глобальным
+    path(r'', include('lesson_two.urls')),
     path('admin/', admin.site.urls),
-    path(r'^', views.home), # localhost: 5650
+    path(r'', include('lesson_two_part2.urls'))
+    # path(r'', views.home), # localhost: 5650
 ]
