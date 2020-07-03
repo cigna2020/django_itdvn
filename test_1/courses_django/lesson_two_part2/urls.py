@@ -22,6 +22,7 @@ from . import views
 #     path('<page_slug>-<page_id>/permissions/', views.permissions),
 # ]
 
+# the same as above but shorter
 urlpatterns = [
     path('<page_slug>-<page_id>/', include([
         path('history/', views.history),
