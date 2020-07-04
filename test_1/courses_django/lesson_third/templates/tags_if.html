@@ -2,9 +2,70 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>TAGS IF</title>
+    <style>
+        h2
+        {
+            color: red;
+            text-decoration: underline;
+        }
+        span
+        {
+            color: blue;
+            font-size: 32px;
+        }
+    </style>
 </head>
 <body>
+    <h1>Tags</h1>
+    <h2>if/else</h2>
+    {% if user %}
+        <h4>{{user}}</h4>
+    {% endif %}
+
+    {% if list %}
+<!--    <span>List is empty!</span>-->
+        <p>{{list}}</p>
+    {% endif %}
+
+{% if list or some_var %}
+    <span>There are some list or some_var.</span>
+{% endif %}
+
+<h3>Вложенный IF!</h3>
+{% if list %}
+    {% if list|length != 2 %}
+        <p>{{list}}</p>
+    {% endif %}
+{% endif %}
+
+<h3>Операторы: ==, !=, <, >, >=, <=, in</h3>
+    <p>==</p>
+    {% if x == 'x value' %}
+        <span>{{x}}</span>
+    {% endif %}
+    <hr>
+    <p>!=</p>
+{% if x != 'y value' %}
+        <span>x != 'y value'</span>
+    {% endif %}
+    <hr>
+    <p></p>
+{% if value < 15 %}
+    <span> if value < --> {{value}}</span>
+    {% endif %}
+    <hr>
+    <p>ELIF</p>
+    {% if var == 'var1' %}
+        {{var}}
+    {% elif var == 'var2' %}
+        {{var}}
+    {% elif var == 'var3' %}
+        {{var}}
+    {% else %}
+        <span>EMPTY!!!</span>
+    {% endif %}
+
 
 </body>
 </html>

@@ -1,10 +1,64 @@
+{% load poll_extras %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>FILTER in USE</title>
+
+    <style>
+
+        h3
+        {   text-decoration: underline;
+            color: darkblue;
+        }
+        ol.filters li span
+        {
+            font-size: 32px;
+            color: red;
+        }
+    </style>
 </head>
 <body>
+    <h2>Filters:</h2>
+        <h3>The standard filters</h3>
+    <ol class="filters">
+        <li>Filter <span>add</span> (10|add:2) : {{value|add:2}}</li>
+        <li>Фильтр <span>add</span> (first|add:second): {{first|add:second}}</li>
+        <li>Фильтр <span>addslashes</span> (str|addslashes): {{str|addslashes}}</li>
+        <li>Фильтр <span>capfirst</span> (name|capfirst): {{name|capfirst}}</li>
+        <li>Filter <span style="color: blue">cut</span> (str|cut:"g"): {{str|cut:"g"}}</li>
+        <li>Filter <span style="font-size: 42px; color: darkred">date</span> (date|date:'D d M Y"): {{date|date:'D d M Y'}}</li>
+        <li>Filter <span style="font-size: 42px; color: green">date</span> (date|date:'DATE_FORMAT'): {{date|date:'DATE_FORMAT'}}</li>
+        <li>Filter <span style="font-size: 42px; color: green">date</span> (date|date: DATETIME_FORMAT): {{date|date:'DATETIME_FORMAT'}}</li>
+        <li>Filter <span style="font-size: 22px; color: blue">date</span> (date|date: SHORT_DATE_FORMAT): {{date|date:'SHORT_DATE_FORMAT'}}</li>
+        <li>Filter <span style="font-size: 32px; color: darkblue">date</span> (date|date: SHORT_DATETIME_FORMAT): {{date|date:'SHORT_DATETIME_FORMAT'}}</li>
+        <p>
+            D - день недели, 3-х буквенное текстовое название. d - День месяца, 2 цифры с ведущим нулем. От "01" до "31"
+            М - Название месяца, текстовое, 3-х буквенное. Y - год, 4 цифры.
+        </p>
+        <li>Filter <span>default</span> (empty_one|default:'variable is empty'): {{empty_one|default:'variable is empty'}}</li>
+        <li>Filter <span>dictsort</span> (for_sort|dictsort:"name"): {{for_sort|dictsort:'name'}}</li>
+        <li>Filter <span>divisibleby</span> (value|divisibleby:'2') (10/2)? : {{value|divisibleby:'10'}}</li>
+        <li>Filter <span>first</span> (first|first): {{first|first}}</li>
+        <li>Filter <span>last</span> (first|last): {{first|last}}</li>
+        <li>Filter <span>floatformat</span> (float|floatformat): {{float|floatformat:2}}</li>
+        <li>Filter <span>get_digit</span> (number|get_digit): {{number|get_digit:1}}</li>
+        <li>Filter <span>join</span> (first|join:'///'): {{first|join:'///'}}</li>
+        <li>Filter <span>length</span> (first|length): {{first|length}}</li>
+        <li>Filter <span>length_is</span> (first|length_is:'4'): {{first|length_is:"4"}}</li>
+        <li>Filter <span>lower</span> (str|lower): {{str|lower}}</li>
+        <li>Filter <span>upper</span> (str|upper): {{str|upper}}</li>
+        <li>Filter <span>make_list</span> (str|make_list): {{str|make_list}}</li>
+        <li>Filter <span>slice</span> (second|slice: '2'): {{str|slice:'2'}}</li>
+        <li>Filter <span>wordcount</span> (str|wordcount): {{str|wordcount}}</li>
+        <li>Filter <span>yesno</span> (boolean_var|yesno:'yes (True), no (False), maybe (None)'): {{boolean_var|yesno:'да, нет, возможно'}}</li>
+
+    </ol>
+    <h3>My own filter</h3>
+        <span>Without a filter: {{name_low}}</span> <br>
+        <span>With my own filter <span style="color: red; font-size: 24px;">my_lower_filter</span>: {{name_low|my_lower_filter}}</span>
+    <span>{{text}}</span>
 
 </body>
 </html>

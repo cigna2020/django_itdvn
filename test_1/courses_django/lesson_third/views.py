@@ -54,6 +54,29 @@ def filter(request):
         'for_sort': array_for_sort,
         'float': 32.223,
         'number': 12345678,
-        'boolean_var': True
+        'boolean_var': None,
+        'name': 'alex'
     }
     return render(request, 'filter.html', context)
+
+def tags_if(request):
+    list = [1, 2, 3, 4, 5, 6]
+    var1 = 'var1'
+    var2 = 'var2'
+    var3 = 'var3'
+    obj = {
+        'name': 'Alex',
+        'surname': 'Parker'
+    }
+    #list = []
+    context = {
+        'x': 'x value',
+        'user': 'Admin',
+        'list': list,
+        'value': 10,
+        'obj': obj,
+        # 'var': 'var1',
+        # 'var': 'var3',
+        # 'var': 'var2',
+    }
+    return render(request, 'tags_if.html', context)
