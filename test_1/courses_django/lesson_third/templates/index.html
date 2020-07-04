@@ -3,8 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <style>
+        ol.variables li, oi.filters li span
+        {
+            font-size: 32px;
+            color: red;
+    </style>
 </head>
 <body>
+<h1>Hi the third lesson!</h1>
+    <h2>{{test}}</h2>
+    <h2>Переменные:</h2>
 
+    <ol class="variables">
+        <li>Name: {{name}}</li>
+        <li>Surname: {{surname}}</li>
+        <li>Coords.x: {{coords.x}}</li>
+        <li>Coords.y: {{coords.y}}</li>
+        <li>list[1]: {{list.1}}</li>
+        <li>Underfined: {{qwerty}}</li>
+    </ol>
 </body>
 </html>
+
+

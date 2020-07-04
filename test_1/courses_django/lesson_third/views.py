@@ -5,9 +5,24 @@ from django.template import loader
 
 # Create your views here.
 
+# def view(request):
+#     list = [0, 232, 45, 123, 4, 53423, 54, 23]
+#     template = loader.get_template('index.html')  # УСТАРЕЛЛЫЙ ВАРИАНТ
+#     context = {
+#         'test': 'TEXT!',
+#         'list': list,
+#         'name': 'Alex',
+#         'surname': 'Jezus',
+#         'coords': {
+#             'x': 'x coords',
+#             'y': 'y coords',
+#         },
+#         # 'list': [1, 2, 3, 4]
+#     }
+#     return HttpResponse(template.render(context, request))
+
 def view(request):
     list = [0, 232, 45, 123, 4, 53423, 54, 23]
-    template = loader.get_template('index.html')
     context = {
         'test': 'TEXT!',
         'list': list,
@@ -17,6 +32,6 @@ def view(request):
             'x': 'x coords',
             'y': 'y coords',
         },
-        'list': [1, 2, 3, 4]
+        # 'list': [1, 2, 3, 4]
     }
-    return HttpResponse(template.render(context, request))
+    return render(request, 'index.html', context)  # порядок (риквест, индекс...) важен!
