@@ -23,5 +23,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path(r'', include('lesson_two_part2.urls')),
     path(r'lesson-two-response/', include('lesson_two_response.urls')),
+    path(r'^lesson-third/', include('lesson_third.urls')),
     # path(r'', views.home), # localhost: 5650
 ]
