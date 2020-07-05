@@ -84,7 +84,7 @@ def tags_if(request):
     return render(request, 'tags_if.html', context)
 
 def tags_for(request):
-    list = [1, 2, 3, 4, 5, 6]
+    list = [7, 5, 3, 4, 5, 6]
     empty = []
     context = {
         'list': list,
