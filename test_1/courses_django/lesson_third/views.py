@@ -64,6 +64,7 @@ def tags_if(request):
     var1 = 'var1'
     var2 = 'var2'
     var3 = 'var3'
+    greetings = ['HI', 'hello', 'By']
     obj = {
         'name': 'Alex',
         'surname': 'Parker'
@@ -75,8 +76,18 @@ def tags_if(request):
         'list': list,
         'value': 10,
         'obj': obj,
+        'greetings': greetings
         # 'var': 'var1',
         # 'var': 'var3',
         # 'var': 'var2',
     }
     return render(request, 'tags_if.html', context)
+
+def tags_for(request):
+    list = [1, 2, 3, 4, 5, 6]
+    empty = []
+    context = {
+        'list': list,
+        'empty': empty,
+    }
+    return render(request, 'tags_for.html', context)

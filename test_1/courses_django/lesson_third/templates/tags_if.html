@@ -66,6 +66,28 @@
         <span>EMPTY!!!</span>
     {% endif %}
 
+    <h2>OPERATOR IN</h2>
+    {% if 'name' in obj %}
+        {{obj.name}}
+    {% endif %}
+ <hr>
+{% if 'bc' in 'abcde' %}
+    <span>Это предложение выводится, поскольку ВС является подстрокой</span>
+{% endif %}
+ <hr>
+
+    {% if 'hello' in greetings %}
+    Если greetings представляет собой список или множество, одним из элементов которого является 'hello', это предложение
+    будет выведено.
+    {% endif %}
+
+<!--    OPERATOR NOT IN -->
+ <hr>
+{% if 'bc' not in 'qwery' %}
+    <span>Это предложение выводится, поскольку ВС НЕ является подстрокой</span>
+{% endif %}
+ <hr>
+
 
 </body>
 </html>
