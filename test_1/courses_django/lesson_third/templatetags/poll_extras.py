@@ -19,10 +19,10 @@ def compare_number(value):
     else:
         return 'The number greater than 50!'
 
-@register.filter(name='get date color')
+@register.filter(name='get_date_color')
 def get_due_date_color(value):
     if value == 0:
-        return 'red!'
+        return 'red'
     elif 0 < value < 10:
         return 'green'
     elif 10 < value < 50:

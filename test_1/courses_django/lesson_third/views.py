@@ -60,7 +60,7 @@ def filter(request):
     return render(request, 'filter.html', context)
 
 def tags_if(request):
-    list = [1, 2, 3, 4, 5, 6]
+    list = [0, 1, 2, 3, 4, 5, 6]
     var1 = 'var1'
     var2 = 'var2'
     var3 = 'var3'
