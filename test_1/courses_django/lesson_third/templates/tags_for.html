@@ -1,3 +1,4 @@
+{% load poll_extras %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -102,6 +103,11 @@ List:
     <p>Commented out text - ТЕКСТ КОТОРЫЙ ПОЛЬЗОВАТЕЛЬ НЕ ВИДЕТ!!!</p>
 {% endcomment %}
 
+<span>Мой тег МИНУСВАН:</span>
+    {% minusone -10 %}
+<br>
+<span> Мой тег МИНУС ТУ</span>
+    {% minustwo 15 %}
 
 </body>
 </html>

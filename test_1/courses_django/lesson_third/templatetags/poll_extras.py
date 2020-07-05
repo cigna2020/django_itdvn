@@ -29,3 +29,10 @@ def get_due_date_color(value):
         return 'blue'
     else:
         return 'black'
+# таким образом записыватеся СОБСТВЕННЫЙ ТЕГ. "minusone" - это значение тега.
+# что-бы тег работал в html файл нужно поключить лоад: {% load poll_extras %}
+register.simple_tag(lambda x: x-1, name='minusone')
+
+@register.simple_tag(name='minustwo')
+def some_function(value):
+    return value - 2
