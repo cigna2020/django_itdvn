@@ -10,6 +10,8 @@ urlpatterns = [
     url(r'^tags-for/$', views.tags_for),
     url(r'^regroup/$', views.tag_regroup),
     url(r'^base/$', views.base),
+    url(r'^adrian/$', views.adrian),
+    url(r'^realese/$', views.realese),
     # url(r'^check/$', views.check),
     # url(r'^in/$', views.tag_in),
 ]
