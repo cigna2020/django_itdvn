@@ -125,13 +125,13 @@ def adrian(request):
     return render(request, 'andrian.html', content)
 
 def realese(request):
-    obj = {
+    obj = [
         {'year': 2015, 'version': '1.8'},
         {'year': 2016, 'version': '1.9'},
         {'year': '2016-2017', 'version': '1.10'},
         {'year': 2017, 'version': '1.11'},
         {'year': 2018, 'version': '2.0'},
-    }
+    ]
     context = {
         'obj': obj
     }

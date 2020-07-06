@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %} Releases of DJANGO {% endblock %}
+
+{% block content %}
+    <div>
+        RELEASES of DJANGO
+    </div>
+<ul>
+        {% for elem in obj %}
+    <li>Год: {{elem.year}}
+        VERSION: {{elem.version}}
+    </li>
+{% endfor %}
+</ul>
+{% endblock %}
