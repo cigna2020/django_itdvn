@@ -2,9 +2,74 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>{% block title %}Домашняя страница{% endblock %}</title>
+
+    <style>
+
+        header
+            {
+                background: darkgreen;
+                height: 200px;
+            }
+            header img
+            {
+                float: left;
+            }
+            nav a
+            {
+                color: white;
+                font-size: 28px;
+                margin-right: 60px;
+            }
+            nav
+            {
+                padding-top: 80px;
+            }
+            aside
+            {
+            background: #f0f0f0;
+            padding: 10px;
+            width: 200px;
+            float: right;
+        }
+        ul li
+        {
+            margin-top: 15px;
+        }
+
+        footer
+        {
+            display: block;
+            position: fixed;
+            top: 690px;
+            background: black;
+            color: white;
+            width: 100px;
+        }
+        div
+        {
+            font-size: 24px;
+        }
+
+    </style>
 </head>
 <body>
 
+
+<header>
+    <img height="200" src="http://rtfm.co.ua/wp-content/uploads/2014/11/django_logo_1.png" alt="">
+    <nav>
+        <a href="/lesson-third/bas">Домашняя страница</a>
+        <a href="/lesson-third/adrian">Адриан Какойто</a>
+        <a href="/lesson-third/realese">Релизи Джанго</a>
+    </nav>
+</header>
+{% include 'aside.html %}
+
+{% block content %}
+<h1>Снова домашняя страница!</h1>
+<div>
+
+</div>
 </body>
 </html>
