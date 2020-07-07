@@ -20,12 +20,17 @@ class Example(models.Model):
     image_field = models.ImageField(upload_to='images')
 
 class Author(models.Model):
-    name = models.CharField(max_length=50)
-    surname = models.CharField(max_length=50)
-    date_birth = models.DateField(auto_now=False)
+    name = models.CharField(max_length=50, verbose_name='Имя')
+    surname = models.CharField(max_length=50, verbose_name="Фамилия")
+    date_birth = models.DateField(auto_now=False, verbose_name="Дата рождения")
 
     def __str__(self):
-        return self.name +' ' + self.surname
+        return "Имя: %s Фамилия: %s" %(self.name, self.surname)
+
+    class Meta:
+        verbose_name = 'Автор'
+        verbose_name_plural = 'Авторы'
+
 
 class Book(models.Model):
     CHOISE_GENDER = (
@@ -49,7 +54,7 @@ class Place(models.Model):
     def __str__(self):
         return '%s the place' % self.name
 
-class Restaurant(models.Model)
+class Restaurant(models.Model):
     place = models.OneToOneField(Place, on_delete=models.CASCADE)
     serves_hot_dog = models.BooleanField(default=False)
     serves_pizza = models.BooleanField(default=False)
@@ -57,9 +62,30 @@ class Restaurant(models.Model)
     def __str__(self):
         return '%s the restaurant' % self.place.name
 
-class Waiter(models.Model)
+class Waiter(models.Model):
     restaurant = models.ForeignKey(Restaurant, on_delete=models.CASCADE)
     name = models.CharField(max_length=50)
 
     def __str__(self):
         return '%s the waiter at %s' %(self.name, self.restaurant)
+
+
+class Public(models.Model):
+    title = models.CharField(max_length=30)
+
+    class Meta:
+        ordering = ['title']
+
+    def __str__(self):
+        return self.title
+
+
+class Artic(models.Model):
+    headline = models.CharField(max_length=100)
+    publications = models.ManyToManyField(Public)
+
+    class Meta:
+        ordering = ['headline']
+
+    def __str__(self):
+        return self.headline
