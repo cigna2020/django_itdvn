@@ -17,8 +17,9 @@ class Author1(models.Model):
     def __str__(self):
         return 'Имя %s' % self.name
 
+
 class Article(models.Model):
-    author  = models.ForeignKey(Author1, verbose_name='Автор статьи')
+    author  = models.ForeignKey(Author1, on_delete=models.CASCADE, verbose_name='Автор статьи')
     title   = models.CharField(max_length=100, verbose_name='Заголовок')
     text    = models.TextField(max_length=500, verbose_name='Текст статьи')
 

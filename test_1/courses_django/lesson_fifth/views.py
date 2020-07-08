@@ -39,23 +39,29 @@ def file_input(request):
     return HttpResponse('Your data were successfully saved!')
 
 
+def form(request):
+    form_for_author1 = forms.AuthorOneForm  #подключение форм, созданных в forms.py
+    form_for_atrticle = forms.ArticleForm
+    form_contact = forms.ContactForm
+    context = {
+        'form_for_author1': form_for_author1,
+        'form_for_atrticle': form_for_atrticle,
+        'form_contact': form_contact
+    }
+    return render(request, 'form.html', context)
 
 
-
-
-def form():
-    pass
-
-def ContactFormView():
-    pass
-
-
-
-
+def author_add(request):
+    form = forms.AuthorOneForm(request.POST)
+    result = 'Автор успешно добавлен %s' %request.path
+    if request.method == 'POST':
+        if form.is_valid():
+            data = form.cleaned_data
+            form.save()
+            print(data['name'])
+            return HttpResponse('Автор добавлен %s' %request.path)
 
 def add_article():
     pass
 
-def author_add():
-    pass
 
