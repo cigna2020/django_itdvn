@@ -12,7 +12,8 @@ class Author1(models.Model):
     }
     name    = models.CharField(max_length=200, verbose_name='Имья автора',)
     surname = models.CharField(max_length=200, verbose_name='Фамилия автора')
-    city    = models.CharField(choices=CHOICES_FOR_CITY, max_length=200, verbose_name='Город', help_text='Выбирите город со списка')
+    city    = models.CharField(choices=CHOICES_FOR_CITY, max_length=200, blank=False, verbose_name='Город', help_text='Выбирите город со списка') # если blank=False,
+    # тогда выбор города будет обьязательным и форма не будет отправлятся.
 
     def __str__(self):
         return 'Имя %s' % self.name

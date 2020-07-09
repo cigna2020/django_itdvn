@@ -39,21 +39,21 @@ def file_input(request):
     return HttpResponse('Your data were successfully saved!')
 
 
-def form(request):
-    form_for_author1 = forms.AuthorOneForm  #подключение форм, созданных в forms.py
-    form_for_article = forms.ArticleForm
-    form_contact = forms.ContactForm
-    context = {
-        'form_for_author1': form_for_author1,
-        'form_for_article': form_for_article,
-        'form_contact': form_contact
-    }
-    return render(request, 'form.html', context)
+# def form(request):
+#     form_for_author1 = forms.AuthorOneForm  #подключение форм, созданных в forms.py
+#     form_for_article = forms.ArticleForm
+#     form_contact = forms.ContactForm
+#     context = {
+#         'form_for_author1': form_for_author1,
+#         'form_for_article': form_for_article,
+#         'form_contact': form_contact
+#     }
+#     return render(request, 'form.html', context)
 
 
 def author_add(request):
-    form = forms.ArticleForm(request.POST)
-    result = 'Автор добавлен %s' %request.path
+    form = forms.AuthorOneForm(request.POST)
+    result = 'Автор добавлен %s' % request.path
     if request.method == 'POST':
         if form.is_valid():
             data = form.cleaned_data
@@ -71,5 +71,52 @@ def add_article(request):
             print(data)
             return HttpResponse('Статья добавлена %s' % request.path)
 
+class ContactFormView(generic.TemplateView):
+    form_for_author1 = forms.AuthorOneForm  #подключение форм, созданных в forms.py
+    form_for_article = forms.ArticleForm
+    form_contact = forms.ContactForm
+
+    def post(self, request):
+        form = forms.ContactForm(request.POST)
+        context = {
+            'form_for_author1': self.form_for_author1,
+            'form_for_article': self.form_for_article,
+            'form_contact': form,
+        }
+        if form.is_valid():
+            data = form.cleaned_data
+            return HttpResponse(data.items())
+        else:
+            return render(request, 'form.html', context)
+
+    def get(self, request):
+        context = {
+            'form_for_author1': self.form_for_author1,
+            'form_for_article': self.form_for_article,
+            'form_contact': self.form_contact,
+        }
+        return render(request, 'form.html', context)
 
 
+class UrlView(generic.TemplateView):
+    form_submit_url = forms.UrlForm
+
+    def get(self, request):
+        context = {
+            'form_url': self.form_submit_url
+        }
+        return render(request, 'url_form.html', context)
+
+    def post(self, request):
+        form = forms.UrlForm(request.POST)
+
+        if form.is_valid():
+            data = form.cleaned_data
+            print(data)
+        else:
+            print('Invalid!')
+            context = {
+                'form_url': form
+            }
+            return render(request, 'url_form.html', context)
+        return HttpResponse(form.cleaned_data.items())
