@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Human</title>
+</head>
+<body>
+<h1>Сотрудники</h1>
+{% block content %}
+<table border="1" cellpadding="5px">
+    <tr style="background: blue; color: white;">
+        <td>ID</td>
+        <td>Имя</td>
+        <td>Фамилия</td>
+        <td>Дата рождения</td>
+        <td>Компания</td>
+        <td>Должность</td>
+        <td>Язык программирования</td>
+        <td>Зарплата</td>
+    </tr>
+    {% for human in all_humans %}
+    <tr>
+        <td>{{human.id}}</td>
+        <td>{{human.name}}</td>
+        <td>{{human.surname}}</td>
+        <td>{{human.birth}}</td>
+        <td>{{human.company}}</td>
+        <td>{{human.position}}</td>
+        <td>{{human.language}}</td>
+        <td>{{human.salary}}</td>
+    </tr>
+    {% endfor %}
+    {% endblock %}
+</table>
+
+<h2>Работаю в Google</h2>
+<table border="1" cellpadding="5px">
+    <tr style="background: red; color: white;">
+        <td>Имя</td>
+        <td>Фамилия</td>
+        <td>Дата рождения</td>
+        <td>Компания</td>
+        <td>Должность</td>
+        <td>Язык программирования</td>
+        <td>Зарплата</td>
+    </tr>
+    {% for human in workers_google %}
+    <tr>
+        <td>{{human.name}}</td>
+        <td>{{human.surname}}</td>
+        <td>{{human.birth}}</td>
+        <td>{{human.company}}</td>
+        <td>{{human.position}}</td>
+        <td>{{human.language}}</td>
+        <td>{{human.salary}}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+<h2>Первый сотрудник</h2>
+<table border="1" cellpadding="5px">
+    <tr style="background: yellow; color: black;">
+        <td>Имя</td>
+        <td>Фамилия</td>
+        <td>Дата рождения</td>
+        <td>Компания</td>
+        <td>Должность</td>
+        <td>Язык программирования</td>
+        <td>Зарплата</td>
+    </tr>
+
+    <tr>
+        <td>{{one_worker.name}}</td>
+        <td>{{one_worker.surname}}</td>
+        <td>{{one_worker.birth}}</td>
+        <td>{{one_worker.company}}</td>
+        <td>{{one_worker.position}}</td>
+        <td>{{one_worker.language}}</td>
+        <td>{{one_worker.salary}}</td>
+    </tr>
+</table>
+<hr>
+
+<h1>Василий</h1>
+<span style="color: red">
+<p>{{name_vasya.name}}</p>
+<p>{{name_vasya.surname}}</p>
+<p>{{name_vasya.company}}</p>
+<p>{{name_vasya.position}}</p>
+</span>
+
+<h2>Форма поиска</h2>
+<form action="" method="post">
+    {% csrf_token %}
+    <label for="">Введите компанию</label>
+    <input name="search" type="text">
+    <button type="submit">Найти</button>
+</form>
+
+</body>
+</html>

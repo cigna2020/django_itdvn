@@ -25,5 +25,6 @@ urlpatterns = [
     path(r'lesson-two-response/', include('lesson_two_response.urls')),
     path(r'lesson-third/', include('lesson_third.urls')),
     path(r'lesson-fifth/', include('lesson_fifth.urls')),
+    path(r'lesson-sixth/', include('lesson_sixth.urls')),
     # path(r'', views.home), # localhost: 5650
 ]
